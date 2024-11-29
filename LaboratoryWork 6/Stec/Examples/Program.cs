@@ -33,7 +33,7 @@ class Program
         }
         Console.WriteLine();
 
-        // Проверка на пустой стек
+       
         
     }
 
@@ -61,7 +61,7 @@ class Program
         }
         Console.WriteLine();
 
-        // Проверка на пустую очередь
+        
         
     }
 
