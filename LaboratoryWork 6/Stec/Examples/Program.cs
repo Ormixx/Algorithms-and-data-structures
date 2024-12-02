@@ -9,7 +9,7 @@ class Program
             StackExample();
             QueueExample();
             PriorityQueueExample();
-            TestWordPalindrome();
+            TestPalindrome();
         }
         catch (InvalidOperationException ex)
         {
@@ -33,7 +33,7 @@ class Program
         }
         Console.WriteLine();
 
-        // Проверка на пустой стек
+       
         
     }
 
@@ -83,12 +83,10 @@ class Program
         Console.WriteLine();
     }
 
-    
-
-    public static void TestWordPalindrome()
+    public static void TestPalindrome()
     {
         string testWord = "level"; // слово можно изменять для тестирования
-        if (IsWordPalindrome(testWord))
+        if (UsingStack(testWord))
         {
             Console.WriteLine($"Слово \"{testWord}\" является палиндромом.");
         }
@@ -98,13 +96,28 @@ class Program
         }
     }
 
-    public static bool IsWordPalindrome(string input)
+    public static bool UsingStack(string input)
     {
         input = input.ToLower();
-        char[] arr = input.ToCharArray();
-        Array.Reverse(arr);
-        string reversed = new string(arr);
+        StackImpl stack = new StackImpl(input.Length);
 
-        return input == reversed;
+        
+        foreach (char c in input)
+        {
+            stack.Push(c);
+        }
+
+        
+        for (int i = 0; i < input.Length; i++)
+        {
+            if (input[i] != stack.Pop())
+            {
+                return false; 
+            }
+        }
+
+        return true; 
     }
+
+
 }
