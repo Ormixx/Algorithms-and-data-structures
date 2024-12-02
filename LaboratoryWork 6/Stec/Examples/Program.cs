@@ -33,7 +33,7 @@ class Program
         }
         Console.WriteLine();
 
-        
+        // Проверка на пустой стек
         
     }
 
